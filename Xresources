@@ -33,7 +33,7 @@ URxvt.keysym.M-v: perl:clipboard:paste
 !------------------------------------------------
 URxvt.saveLines: 300000
 URxvt.scrollBar: false
-!URxvt*scrollstyle: plain
+URxvt*scrollstyle: plain
 URxvt.cursorBlink: true
 URxvt.cursorUnderline: false
 !------------------------------------------------
