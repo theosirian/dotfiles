@@ -71,6 +71,8 @@ let g:polyglot_disabled = ['latex']
 fun! MyFormat()
    if &ft =~ 'javascript\|typescript\|jsx\|html\|css\|scss\|less\|graphql\|markdown\|vue\|json'
       Prettier
+   elseif &ft =~ 'pug'
+      echo "pug fuck you"
    elseif &ft != ''
       Autoformat
    else
@@ -83,6 +85,7 @@ au BufWrite * call MyFormat()
 au! BufNewFile,BufRead *.glslv,*.glslf set ft=glsl
 
 map <F3> <ESC>:w<CR>
+map <F7> <ESC>:Autoformat<CR>
 
 set formatprg=par\ j1w120
 "set formatprg=par\ P+\*P+\-P+\+P+$\ 80j
@@ -91,3 +94,10 @@ map <F6> <ESC>mkggVGgq`k
 au FileType yaml,python,qaf let b:autoformat_autoindent = 0
 au FileType yaml,python,qaf let b:autoformat_retab = 0
 au FileType yaml,python,qaf let b:autoformat_remove_trailing_spaces = 0
+
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+map <C-n> :NERDTreeToggle<CR>
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
