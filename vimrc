@@ -79,22 +79,25 @@ nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 fun! MyFormat()
-  if &ft =~ 'javascript\|typescript\|jsx\|html\|css\|scss\|less\|graphql\|markdown\|vue\|json'
-    Prettier
-  elseif &ft != ''
-    Autoformat
-  else
-    echo "No filetype!"
-  endif
+   if &ft =~ 'javascript\|typescript\|jsx\|html\|css\|scss\|less\|graphql\|markdown\|vue\|json'
+      Prettier
+   elseif &ft =~ 'pug'
+      echo "pug fuck you"
+   elseif &ft != ''
+      Autoformat
+   else
+      echo "No filetype!"
+   endif
 endfun
 
 "au BufWrite * call MyFormat()
 
 au! BufNewFile,BufRead *.glslv,*.glslf set ft=glsl
 
-map <F3> <ESC>:w<CR>
-map <F5> <ESC>:wa<CR>
-map <F10> <ESC>:mks!<CR>
+map <silent> <F3> <ESC>:w<CR>
+map <silent> <F5> <ESC>:wa<CR>
+map <silent> <F7> <ESC>:Autoformat<CR>
+map <silent> <F10> <ESC>:mks!<CR>
 
 set formatprg=par\ j1w80
 "set formatprg=par\ P+\*P+\-P+\+P+$\ 80j
@@ -107,16 +110,16 @@ au FileType yaml,python,qaf let b:autoformat_remove_trailing_spaces = 0
 nnoremap - :call bufferhint#Popup()<CR>
 nnoremap \ :call bufferhint#LoadPrevious()<CR>
 
-map <silent> <F8> <ESC>:Autoformat<CR>
-
 " Maps Alt-[h,j,k,l] to resizing a window split
 map <silent> <A-h> <C-w><
 map <silent> <A-j> <C-W>-
 map <silent> <A-k> <C-W>+
 map <silent> <A-l> <C-w>>
+
 " Maps Alt-[s.v] to horizontal and vertical split respectively
 map <silent> <A-s> :split<CR>
 map <silent> <A-v> :vsplit<CR>
+
 " Maps Alt-[n,p] for moving next and previous window respectively
 map <silent> <A-n> <C-w><C-w>
 map <silent> <A-p> <C-w><S-w>
@@ -189,3 +192,9 @@ au FileType rust nmap gd <Plug>(rust-def)
 au FileType rust nmap gs <Plug>(rust-def-split)
 au FileType rust nmap gx <Plug>(rust-def-vertical)
 au FileType rust nmap <leader>gd <Plug>(rust-doc)
+
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
