@@ -1,8 +1,13 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=PATH=/bin:/usr/bin:/usr/local/bin:$HOME/bin:$PATH
+export PATH="$PATH:/bin"
+export PATH="$PATH:/usr/bin"
+export PATH="$PATH:/usr/local/bin"
+export PATH="$PATH:$HOME/bin"
+export PATH="$PATH:$HOME/100-scripts"
+export PATH="$PATH:$HOME/.local/bin"
 
 # Path to your oh-my-zsh installation.
-export ZSH=/home/xtheosirian/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
    # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -74,7 +79,7 @@ dircycle
 dirpersist
 encode64
 extract
-gpg-agent
+#gpg-agent
 history
 history-substring-search
 #per-directory-history
@@ -137,5 +142,4 @@ export SSH_KEY_PATH="~/.ssh/id_rsa"
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-
-
+source $HOME/yoopay.sh
