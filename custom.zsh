@@ -20,6 +20,10 @@ alias jwth="decode_jwt 1"
 # Decode JWT Payload
 alias jwtp="decode_jwt 2"
 
+# More ls aliases
+alias lr="ls -rtl"
+alias lrr="ls -tl"
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
@@ -31,7 +35,7 @@ fi
 # Esperanto keyboard accents
 #setxkbmap -option esperanto:qwerty
 
-alias xo='xdg-open'
+alias xo="xdg-open"
 alias vimrc="vim ~/.vimrc"
 alias tmuxrc="vim ~/.tmux.conf"
 alias zshrc="vim ~/.zshrc"

@@ -7,8 +7,8 @@
 !URxvt.boldFont: xft:TamzenForPowerline:style=Bold:size=16
 !URxvt.font: xft:DejaVu Sans Mono for Powerline:size=12
 !URxvt.boldFont: xft:DejaVu Sans Mono for Powerline:size=12:style=Bold
-URxvt.font: xft:Iosevka Nerd Font Mono:size=10:style=Light
-URxvt.boldFont: xft:Iosevka Nerd Font Mono:size=10:style=Heavy
+URxvt.font: xft:Iosevka Nerd Font Mono:size=8:style=Regular
+URxvt.boldFont: xft:Iosevka Nerd Font Mono:size=8:style=Heavy
 !URxvt.letterSpace: -1
 xterm*termName: xterm-256color
 !------------------------------------------------
@@ -20,6 +20,11 @@ Xft.hinting: true
 Xft.hintstyle: hintslight
 Xft.rgba: rgb
 Xft.lcdfilter: lcddefault
+URxvt.perl-ext-common: font-size
+URxvt.keysym.C-S-equal: font-size:increase
+URxvt.keysym.C-minus: font-size:decrease
+URxvt.keysym.C-equal: font-size:reset
+URxvt.keysym.C-slash: font-size:show
 !------------------------------------------------
 ! URXVT COPY PASTE SHORTCUTS
 !------------------------------------------------
@@ -49,10 +54,10 @@ URxvt.tabbedex.new-button: no
 !------------------------------------------------
 ! URXVT FULLSCREEN TOGGLE
 !------------------------------------------------
-URxvt.keysym.F11: perl:fullscreen:switch
+URxvt.keysym.F11: fullscreen:switch
 ! vim: set filetype=xdefaults :
 !------------------------------------------------
-! URXVT COLORS
+! URXVT COLORS PURPLE
 !------------------------------------------------
 *.foreground:   #e1bcc8
 *.background:   #161219
@@ -81,3 +86,35 @@ URxvt.keysym.F11: perl:fullscreen:switch
 ! white
 *.color7:       #e95986
 *.color15:      #fb89ad
+*foreground: #DDCCBB
+!------------------------------------------------
+! URXVT COLORS GET FRESH
+!------------------------------------------------
+! Brown BG
+!*background: #30251D
+! Grey BG
+*background: #151515
+!black
+*color0:     #393939
+*color8:     #AF875F
+!red
+*color1:     #BF1E2D
+*color9:     #E7212A
+!green
+*color2:     #9DBA3A
+*color10:    #A9C938
+!yellow
+*color3:     #F5B915
+*color11:    #F7D325
+!blue
+*color4:     #1CA1DB
+*color12:    #00AFDA
+!magenta
+*color5:     #652F90
+*color13:    #894E9F
+!cyan
+*color6:     #EA7D24
+*color14:    #F79321
+!white
+*color7:     #E7E8E9
+*color15:    #F3F3F4

@@ -2,7 +2,10 @@ execute pathogen#infect()
 
 set nocompatible
 
+set encoding=UTF-8
+
 syntax on
+colorscheme inkpot
 filetype on
 filetype plugin indent on
 
