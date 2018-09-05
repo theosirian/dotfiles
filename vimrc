@@ -5,7 +5,7 @@ set nocompatible
 set encoding=UTF-8
 
 syntax on
-colorscheme inkpot
+colorscheme tolerable
 filetype on
 filetype plugin indent on
 

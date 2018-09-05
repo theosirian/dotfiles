@@ -29,10 +29,12 @@ URxvt.keysym.C-slash: font-size:show
 ! URXVT COPY PASTE SHORTCUTS
 !------------------------------------------------
 URxvt.iso14755: False
-URxvt.keysym.Shift-Control-C: perl:clipboard:copy
-URxvt.keysym.Shift-Control-V: perl:clipboard:paste
-URxvt.keysym.M-c: perl:clipboard:copy
-URxvt.keysym.M-v: perl:clipboard:paste
+!URxvt.keysym.Shift-Control-C: eval:paste_clipboard
+!URxvt.keysym.Shift-Control-V: eval:selection_to_clipboard
+!URxvt.keysym.M-c: eval:paste_clipboard
+!URxvt.keysym.M-v: eval:selection_to_clipboard
+!URxvt.keysym.M-c: clipboard:copy
+!URxvt.keysym.M-v: clipboard:paste
 !------------------------------------------------
 ! URXVT SCROLLBAR AND CURSOR STYLE
 !------------------------------------------------
