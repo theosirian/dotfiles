@@ -7,8 +7,8 @@
 !URxvt.boldFont: xft:TamzenForPowerline:style=Bold:size=16
 !URxvt.font: xft:DejaVu Sans Mono for Powerline:size=12
 !URxvt.boldFont: xft:DejaVu Sans Mono for Powerline:size=12:style=Bold
-URxvt.font: xft:Iosevka Nerd Font Mono:size=12:style=Light
-URxvt.boldFont: xft:Iosevka Nerd Font Mono:size=12:style=Heavy
+URxvt.font: xft:Iosevka Nerd Font Mono:size=10:style=Light
+URxvt.boldFont: xft:Iosevka Nerd Font Mono:size=10:style=Heavy
 !URxvt.letterSpace: -1
 xterm*termName: xterm-256color
 !------------------------------------------------
