@@ -2,12 +2,15 @@ execute pathogen#infect()
 
 set nocompatible
 
+set encoding=UTF-8
+
 syntax on
 
 " good themes
 " blackbeauty; blacksea: chocolateliquor; earendel; freya; golden; inkpot; jellybeans; leo;
 " lettuce; matrix; moss; motus; Mustang; neon; peachpuff; railscasts; solarized; synic; tabula;
-color inkpot
+"color inkpot
+colorscheme tolerable
 filetype on
 filetype plugin indent on
 

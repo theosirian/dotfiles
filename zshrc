@@ -12,7 +12,12 @@ export ZSH=$HOME/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
    # it'll load a random theme each time that oh-my-zsh is loaded.
    # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-   ZSH_THEME="agnoster"
+   #ZSH_THEME="agnoster"
+   #ZSH_THEME="ys"
+   #ZSH_THEME="powerlevel9k/powerlevel9k"
+   #ZSH_THEME="agnosterzak"
+   ZSH_THEME="spaceship"
+   
 
    if command -v tmux>/dev/null; then
       [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux new -A -s home
@@ -111,7 +116,7 @@ systemd
 battery
 emoji-clock
 lol
-nyan
+#nyan
 rand-quote
 themes
 )
@@ -142,4 +147,6 @@ export SSH_KEY_PATH="~/.ssh/id_rsa"
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-source $HOME/yoopay.sh
+if [[ -f $HOME/yoopay.sh ]]; then
+  source $HOME/yoopay.sh
+fi

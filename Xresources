@@ -7,8 +7,10 @@
 !URxvt.boldFont: xft:TamzenForPowerline:style=Bold:size=16
 !URxvt.font: xft:DejaVu Sans Mono for Powerline:size=12
 !URxvt.boldFont: xft:DejaVu Sans Mono for Powerline:size=12:style=Bold
-URxvt.font: xft:Iosevka Nerd Font Mono:size=11:style=Light
-URxvt.boldFont: xft:Iosevka Nerd Font Mono:size=11:style=Heavy
+!URxvt.font: xft:Iosevka Nerd Font Mono:size=11:style=Light
+!URxvt.boldFont: xft:Iosevka Nerd Font Mono:size=11:style=Heavy
+URxvt.font: xft:Iosevka Nerd Font Mono:size=8:style=Regular
+URxvt.boldFont: xft:Iosevka Nerd Font Mono:size=8:style=Heavy
 !URxvt.letterSpace: -1
 xterm*termName: xterm-256color
 !------------------------------------------------
@@ -20,14 +22,22 @@ Xft.hinting: true
 Xft.hintstyle: hintslight
 Xft.rgba: rgb
 Xft.lcdfilter: lcddefault
+URxvt.perl-ext-common: font-size
+URxvt.keysym.C-S-equal: font-size:increase
+URxvt.keysym.C-minus: font-size:decrease
+URxvt.keysym.C-equal: font-size:reset
+URxvt.keysym.C-slash: font-size:show
 !------------------------------------------------
 ! URXVT COPY PASTE SHORTCUTS
 !------------------------------------------------
-URxvt.iso14755: False
-URxvt.keysym.Shift-Control-C: perl:clipboard:copy
-URxvt.keysym.Shift-Control-V: perl:clipboard:paste
-URxvt.keysym.M-c: perl:clipboard:copy
-URxvt.keysym.M-v: perl:clipboard:paste
+URxvt.iso14755: false
+URxvt.iso14755_52: false
+!URxvt.keysym.Shift-Control-C: eval:paste_clipboard
+!URxvt.keysym.Shift-Control-V: eval:selection_to_clipboard
+!URxvt.keysym.M-c: eval:paste_clipboard
+!URxvt.keysym.M-v: eval:selection_to_clipboard
+!URxvt.keysym.M-c: clipboard:copy
+!URxvt.keysym.M-v: clipboard:paste
 !------------------------------------------------
 ! URXVT SCROLLBAR AND CURSOR STYLE
 !------------------------------------------------
@@ -49,7 +59,7 @@ URxvt.tabbedex.new-button: no
 !------------------------------------------------
 ! URXVT FULLSCREEN TOGGLE
 !------------------------------------------------
-URxvt.keysym.F11: perl:fullscreen:switch
+!URxvt.keysym.F11: fullscreen:switch
 ! vim: set filetype=xdefaults :
 !------------------------------------------------
 ! URXVT COLORS PURPLE
@@ -112,8 +122,42 @@ URxvt.keysym.F11: perl:fullscreen:switch
 !URxvt*background: #261515
 !URxvt*foreground: #FFFFFF
 !URxvt*cursorColor: #E25454
-!========
+!------------------------------------------------
+! URXVT COLORS UNKNOWN (YOOPAY)
+!------------------------------------------------
+!*.foreground:   #e1bcc8
+!*.background:   #161219
+!*.cursorColor:  #c7c7c7
+!! black
+!*.color0:       #1d2c47
+!*.color8:       #1d2c47
+!! red
+!*.color1:       #d2275a
+!*.color9:       #ff2f6d
+!! green
+!*.color2:       #8752ba
+!*.color10:      #b66efb
+!! yellow
+!*.color3:       #e15581
+!*.color11:      #fb5f90
+!! blue
+!*.color4:       #1e59aa
+!*.color12:      #2c84fc
+!! magenta
+!*.color5:       #8752ba
+!*.color13:      #b56efa
+!! cyan
+!*.color6:       #4b76b8
+!*.color14:      #67a2fd
+!! white
+!*.color7:       #e95986
+!*.color15:      #fb89ad
+!------------------------------------------------
+! URXVT COLORS GET FRESH
+!------------------------------------------------
 *foreground: #DDCCBB
+! Brown BG
+!*background: #30251D
 ! Grey BG
 *background: #151515
 !black
