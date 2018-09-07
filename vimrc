@@ -3,6 +3,11 @@ execute pathogen#infect()
 set nocompatible
 
 syntax on
+
+" good themes
+" blackbeauty; blacksea: chocolateliquor; earendel; freya; golden; inkpot; jellybeans; leo;
+" lettuce; matrix; moss; motus; Mustang; neon; peachpuff; railscasts; solarized; synic; tabula;
+color inkpot
 filetype on
 filetype plugin indent on
 
@@ -68,26 +73,35 @@ let g:rustfmt_autosave = 1
 let g:livepreview_previewer = "zathura"
 let g:polyglot_disabled = ['latex']
 
+let g:ale_linters_explicit = 1
 let g:ale_linters = {'javascript': ['eslint'], 'rust': ['rls']}
 let g:ale_fixers = {'javascript': ['prettier', 'eslint']}
 
 let g:ale_fix_on_save = 1
 let g:ale_linters_explicit = 1
 let g:ale_sign_column_always = 1
+let g:ale_rust_rls_executable ="/usr/bin/rls"
+let g:ale_rust_rls_toolchain = "stable"
 
-nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+let g:racer_cmd = '/home/xtheosirian/.cargo/bin/racer'
+let g:racer_experimental_completer = 1
+au FileType rust nmap gd <Plug>(rust-def)
+au FileType rust nmap gs <Plug>(rust-def-split)
+au FileType rust nmap gx <Plug>(rust-def-vertical)
+au FileType rust nmap <leader>gd <Plug>(rust-doc)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 
 fun! MyFormat()
-   if &ft =~ 'javascript\|typescript\|jsx\|html\|css\|scss\|less\|graphql\|markdown\|vue\|json'
-      Prettier
-   elseif &ft =~ 'pug'
-      echo "pug fuck you"
-   elseif &ft != ''
-      Autoformat
-   else
-      echo "No filetype!"
-   endif
+  if &ft =~ 'javascript\|typescript\|jsx\|html\|css\|scss\|less\|graphql\|markdown\|vue\|json'
+    Prettier
+  elseif &ft =~ 'pug'
+    echo "pug fuck you"
+  elseif &ft != ''
+    Autoformat
+  else
+    echo "No filetype!"
+  endif
 endfun
 
 "au BufWrite * call MyFormat()
@@ -186,15 +200,10 @@ function! Vimgrepall(pattern)
 endfunction
 command! -nargs=1 Vim call Vimgrepall(<f-args>)
 
-let g:racer_cmd = '/home/xtheosirian/.cargo/bin/racer'
-let g:racer_experimental_completer = 1
-au FileType rust nmap gd <Plug>(rust-def)
-au FileType rust nmap gs <Plug>(rust-def-split)
-au FileType rust nmap gx <Plug>(rust-def-vertical)
-au FileType rust nmap <leader>gd <Plug>(rust-doc)
-
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+
+au BufRead,BufNewFile *.nani set syntax=nani
