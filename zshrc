@@ -150,4 +150,6 @@ export SSH_KEY_PATH="~/.ssh/id_rsa"
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-source $HOME/yoopay.sh
+if [[ -f $HOME/yoopay.sh ]]; then
+  source $HOME/yoopay.sh
+fi
