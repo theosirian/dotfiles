@@ -25,22 +25,28 @@ alias lr="ls -rtl"
 alias lrr="ls -tl"
 
 # xsel aliases
-alias xip="xsel -ip"
-alias xis="xsel -is"
-alias xic="xsel -ic"
-alias xop="xsel -op"
-alias xos="xsel -os"
-alias xoc="xsel -oc"
+alias -g xip=" | xsel -ip"
+alias -g xis=" | xsel -is"
+alias -g xic=" | xsel -ib"
+alias -g xib=" | xsel -ib"
 
-alias XIP="xsel -ip"
-alias XIS="xsel -is"
-alias XIC="xsel -ic"
-alias XOP="xsel -op"
-alias XOS="xsel -os"
-alias XOC="xsel -oc"
+alias -g xop=" | xsel -op"
+alias -g xos=" | xsel -os"
+alias -g xoc=" | xsel -ob"
+alias -g xob=" | xsel -ob"
+
+alias -g XIP=" | xsel -ip"
+alias -g XIS=" | xsel -is"
+alias -g XIC=" | xsel -ib"
+alias -g XIB=" | xsel -ib"
+
+alias -g XOP=" | xsel -op"
+alias -g XOS=" | xsel -os"
+alias -g XOC=" | xsel -ob"
+alias -g XOB=" | xsel -ob"
 
 # tee copy to all
-alias teecopy="tsc >(XIP) >(XIS) >(XIC)"
+#alias teecopy="tsc >(XIP) >(XIS) >(XIC)"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"

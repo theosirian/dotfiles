@@ -6,6 +6,9 @@ export PATH="$PATH:$HOME/bin"
 export PATH="$PATH:$HOME/100-scripts"
 export PATH="$PATH:$HOME/.local/bin"
 
+export PATH="$PATH:/home/xtheosirian/rakudo/install/bin/"
+export PATH="$PATH:/home/xtheosirian/rakudo/install/share/perl6/site/bin"
+
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
