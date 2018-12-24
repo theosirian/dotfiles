@@ -8,6 +8,9 @@ export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH;$HOME/.gem/ruby/2.5.0/bin"
 export PATH="$PATH;$HOME/.cargo/bin"
 
+export PATH="$PATH:/home/xtheosirian/rakudo/install/bin/"
+export PATH="$PATH:/home/xtheosirian/rakudo/install/share/perl6/site/bin"
+
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
