@@ -9,8 +9,8 @@
 !URxvt.boldFont: xft:DejaVu Sans Mono for Powerline:size=12:style=Bold
 !URxvt.font: xft:Iosevka Nerd Font Mono:size=11:style=Light
 !URxvt.boldFont: xft:Iosevka Nerd Font Mono:size=11:style=Heavy
-URxvt.font: xft:Iosevka Nerd Font Mono:size=8:style=Regular
-URxvt.boldFont: xft:Iosevka Nerd Font Mono:size=8:style=Heavy
+URxvt.font: xft:Hack Nerd Font Mono:size=10:style=Regular
+URxvt.boldFont: xft:Hack Nerd Font Mono:size=10:style=Bold
 !URxvt.letterSpace: -1
 xterm*termName: xterm-256color
 !------------------------------------------------
@@ -22,11 +22,12 @@ Xft.hinting: true
 Xft.hintstyle: hintslight
 Xft.rgba: rgb
 Xft.lcdfilter: lcddefault
+!URxvt.perl-lib: ${HOME}/.urxvt/ext
 URxvt.perl-ext-common: font-size
-URxvt.keysym.C-S-equal: font-size:increase
-URxvt.keysym.C-minus: font-size:decrease
-URxvt.keysym.C-equal: font-size:reset
-URxvt.keysym.C-slash: font-size:show
+URxvt.keysym.C-M-equal: font-size:increase
+URxvt.keysym.C-M-minus: font-size:decrease
+!URxvt.keysym.C-A-equal: font-size:reset
+URxvt.keysym.C-M-slash: font-size:show
 !------------------------------------------------
 ! URXVT COPY PASTE SHORTCUTS
 !------------------------------------------------

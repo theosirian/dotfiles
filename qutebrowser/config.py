@@ -1044,7 +1044,7 @@ c.hints.uppercase = True
 
 # Show a scrollbar.
 ## Type: Bool
-c.scrolling.bar = False
+c.scrolling.bar = 'always'
 
 # Enable smooth scrolling for web pages. Note smooth scrolling does not
 # work with the `:scroll-px` command.
@@ -1385,7 +1385,7 @@ c.url.searchengines = {
 
 # Default zoom level.
 ## Type: Perc
-c.zoom.default = '80%'
+c.zoom.default = '100%'
 
 # Available zoom levels.
 # Type: List of Perc

@@ -9,8 +9,8 @@ syntax on
 " good themes
 " blackbeauty; blacksea: chocolateliquor; earendel; freya; golden; inkpot; jellybeans; leo;
 " lettuce; matrix; moss; motus; Mustang; neon; peachpuff; railscasts; solarized; synic; tabula;
-"color inkpot
-colorscheme tolerable
+"colorscheme inkpot
+"colorscheme tolerable
 filetype on
 filetype plugin indent on
 
@@ -26,7 +26,7 @@ set number
 set relativenumber
 set numberwidth=8
 set ruler
-set colorcolumn=80
+set colorcolumn=100
 set cursorline
 
 set backspace=2
@@ -76,15 +76,14 @@ let g:rustfmt_autosave = 1
 let g:livepreview_previewer = "zathura"
 let g:polyglot_disabled = ['latex']
 
+let g:ale_fix_on_save = 1
+let g:ale_sign_column_always = 1
+let g:ale_rust_rls_executable ="/usr/bin/rls"
+let g:ale_rust_rls_toolchain = "nightly"
 let g:ale_linters_explicit = 1
 let g:ale_linters = {'javascript': ['eslint'], 'rust': ['rls']}
 let g:ale_fixers = {'javascript': ['prettier', 'eslint']}
-
-let g:ale_fix_on_save = 1
-let g:ale_linters_explicit = 1
-let g:ale_sign_column_always = 1
-let g:ale_rust_rls_executable ="/usr/bin/rls"
-let g:ale_rust_rls_toolchain = "stable"
+let g:ale_lint_on_text_changed = 'never'
 
 let g:racer_cmd = '/home/xtheosirian/.cargo/bin/racer'
 let g:racer_experimental_completer = 1
@@ -191,6 +190,7 @@ map <Left> <c-w><
 map <Right> <c-w>>
 
 " /*}}}*/
+map ,* *<C-O>:%s///gn<CR>
 
 "Search in all currently opened buffers
 function! ClearQuickfixList()
@@ -206,7 +206,24 @@ command! -nargs=1 Vim call Vimgrepall(<f-args>)
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
+let NERDTreeMinimalUI=1
+let NERDTreeDirArrows=1
+let NERDTreeQuitOnOpen=0
+
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
 au BufRead,BufNewFile *.nani set syntax=nani
+command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
+
+function! TwiddleCase(str)
+  if a:str ==# toupper(a:str)
+    let result = tolower(a:str)
+  elseif a:str ==# tolower(a:str)
+    let result = substitute(a:str,'\(\<\w\+\>\)', '\u\1', 'g')
+  else
+    let result = toupper(a:str)
+  endif
+  return result
+endfunction
+vnoremap ~ y:call setreg('', TwiddleCase(@"), getregtype(''))<CR>gv""Pgv
