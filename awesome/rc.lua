@@ -73,7 +73,7 @@ local themes = {
   "vertex",          -- 10
 }
 
-local chosen_theme = themes[6]
+local chosen_theme = themes[5]
 local modkey       = "Mod4"
 local altkey       = "Mod1"
 local terminal     = "alacritty"
@@ -398,16 +398,28 @@ awful.util.tasklist_buttons = my_table.join(
   -- ALSA volume control
   awful.key({ altkey }, "Up",
     function ()
+      os.execute(string.format("amixer -q set %s 5%%+", beautiful.volume.channel))
+      beautiful.volume.update()
+    end,
+    {description = "volume up 5%", group = "hotkeys"}),
+  awful.key({ altkey }, "Down",
+    function ()
+      os.execute(string.format("amixer -q set %s 5%%-", beautiful.volume.channel))
+      beautiful.volume.update()
+    end,
+    {description = "volume down 5%", group = "hotkeys"}),
+  awful.key({ altkey, "Shift" }, "Up",
+    function ()
       os.execute(string.format("amixer -q set %s 1%%+", beautiful.volume.channel))
       beautiful.volume.update()
     end,
-    {description = "volume up", group = "hotkeys"}),
-  awful.key({ altkey }, "Down",
+    {description = "volume up 1%", group = "hotkeys"}),
+  awful.key({ altkey, "Shift" }, "Down",
     function ()
       os.execute(string.format("amixer -q set %s 1%%-", beautiful.volume.channel))
       beautiful.volume.update()
     end,
-    {description = "volume down", group = "hotkeys"}),
+    {description = "volume down 1%", group = "hotkeys"}),
   awful.key({ altkey }, "m",
     function ()
       os.execute(string.format("amixer -q set %s toggle", beautiful.volume.togglechannel or beautiful.volume.channel))

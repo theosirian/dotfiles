@@ -68,3 +68,5 @@ alias ohmyzsh="vim ~/.oh-my-zsh"
 firstpage() {
    pdftoppm $1.pdf $1 -ng -r 300 -f 1 -singlefile
 }
+
+alias passhs="PASSWORD_STORE_DIR=$HOME/999-hackerspace/.password-store pass"

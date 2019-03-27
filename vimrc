@@ -28,6 +28,7 @@ set numberwidth=8
 set ruler
 set colorcolumn=100
 set cursorline
+set scrolloff=999
 
 set backspace=2
 
@@ -81,8 +82,8 @@ let g:ale_sign_column_always = 1
 let g:ale_rust_rls_executable ="/usr/bin/rls"
 let g:ale_rust_rls_toolchain = "nightly"
 let g:ale_linters_explicit = 1
-let g:ale_linters = {'javascript': ['eslint'], 'rust': ['rls']}
-let g:ale_fixers = {'javascript': ['prettier', 'eslint']}
+let g:ale_linters = {'javascript': ['eslint'], 'rust': ['rls'], 'vue': ['eslint'], 'typescript': ['tslint']}
+let g:ale_fixers = {'javascript': ['prettier', 'eslint'], 'vue': ['eslint'], 'typescript': ['tslint']}
 let g:ale_lint_on_text_changed = 'never'
 
 let g:racer_cmd = '/home/xtheosirian/.cargo/bin/racer'
