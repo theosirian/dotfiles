@@ -11,7 +11,9 @@ export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:/home/xtheosirian/rakudo/install/bin/"
 export PATH="$PATH:/home/xtheosirian/rakudo/install/share/perl6/site/bin"
 
-source $HOME/emsdk-portable/emsdk_env.sh
+if [[ -f $HOME/emsdk-portable/emsdk_env.sh ]]; then
+  source $HOME/emsdk-portable/emsdk_env.sh
+fi
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
