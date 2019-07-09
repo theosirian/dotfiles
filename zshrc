@@ -1,18 +1,24 @@
 # If you come from bash you might have to change your $PATH.
-export PATH="$PATH:/bin"
-export PATH="$PATH:/usr/bin"
-export PATH="$PATH:/usr/local/bin"
-export PATH="$PATH:$HOME/bin"
-export PATH="$PATH:$HOME/100-scripts"
-export PATH="$PATH:$HOME/.local/bin"
-export PATH="$PATH:$HOME/.gem/ruby/2.5.0/bin"
-export PATH="$PATH:$HOME/.cargo/bin"
+export PATH="/bin:$PATH"
+export PATH="/usr/bin:$PATH"
+export PATH="/usr/local/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/100-scripts:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.gem/ruby/2.5.0/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
 
-export PATH="$PATH:/home/xtheosirian/rakudo/install/bin/"
-export PATH="$PATH:/home/xtheosirian/rakudo/install/share/perl6/site/bin"
+export PATH="/home/xtheosirian/rakudo/install/bin/:$PATH"
+export PATH="/home/xtheosirian/rakudo/install/share/perl6/site/bin:$PATH"
 
-if [[ -f $HOME/emsdk-portable/emsdk_env.sh ]]; then
-  source $HOME/emsdk-portable/emsdk_env.sh
+emsdk() {
+  if [[ -f $HOME/emsdk-portable/emsdk_env.sh ]]; then
+    source $HOME/emsdk-portable/emsdk_env.sh
+  fi
+}
+
+if [[ -f /opt/android-sdk/platform-tools/adb ]]; then
+export PATH="/opt/android-sdk/platform-tools:$PATH"
 fi
 
 # Path to your oh-my-zsh installation.

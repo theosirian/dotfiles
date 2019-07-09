@@ -82,8 +82,8 @@ let g:ale_sign_column_always = 1
 let g:ale_rust_rls_executable ="/usr/bin/rls"
 let g:ale_rust_rls_toolchain = "nightly"
 let g:ale_linters_explicit = 1
-let g:ale_linters = {'javascript': ['eslint'], 'rust': ['rls'], 'vue': ['eslint'], 'typescript': ['tslint']}
-let g:ale_fixers = {'javascript': ['prettier', 'eslint'], 'vue': ['eslint'], 'typescript': ['tslint']}
+let g:ale_linters = {'javascript': ['eslint'], 'rust': ['rls'], 'vue': ['eslint'], 'typescript': ['tslint'], 'dart': ['dartfmt'], 'xml': ['xmllint'], 'c#': ['uncrustify']}
+let g:ale_fixers = {'javascript': ['prettier', 'eslint'], 'vue': ['eslint'], 'typescript': ['tslint'], 'dart': ['dartfmt'], 'xml': ['xmllint'], 'c#': ['uncrustify']}
 let g:ale_lint_on_text_changed = 'never'
 
 let g:racer_cmd = '/home/xtheosirian/.cargo/bin/racer'
@@ -116,7 +116,7 @@ map <silent> <F5> <ESC>:wa<CR>
 map <silent> <F7> <ESC>:Autoformat<CR>
 map <silent> <F10> <ESC>:mks!<CR>
 
-set formatprg=par\ j1w80
+set formatprg=par\ j1w120
 "set formatprg=par\ P+\*P+\-P+\+P+$\ 80j
 map <F6> <ESC>mkggVGgq`k
 

@@ -84,7 +84,7 @@ local guieditor    = "gvim"
 local scrlocker    = "xlock"
 
 awful.util.terminal = terminal
-awful.util.tagnames = { "main", "media", "dev", "play", "research" }
+awful.util.tagnames = { "一", "二", "三", "四", "五" }
 awful.layout.layouts = {
   --awful.layout.suit.floating,
   awful.layout.suit.tile,

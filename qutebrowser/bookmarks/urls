@@ -60,9 +60,21 @@ https://hub.docker.com/r/linuxserver/tautulli linuxserver/tautulli - Docker Hub
 https://hub.docker.com/r/linuxserver/ombi linuxserver/ombi - Docker Hub
 https://docs.funkwhale.audio/installation/docker.html Docker installation — funkwhale 0.18.3 documentation
 https://sonarr.theosirian.com/ Sonarr
-https://radarr.theosirian.com/ Movies - Radarr
-https://mylar.theosirian.com/home Mylar - Home
+https://radarr.theosirian.com/ Radarr
 https://lidarr.theosirian.com/ Lidarr
-https://traefik.theosirian.com/dashboard/#/ Træfik
-https://jackett.theosirian.com/UI/Dashboard Jackett
-https://bazarr.theosirian.com/settings Settings - Bazarr
+https://mylar.theosirian.com/ Mylar
+https://bazarr.theosirian.com/ Bazarr
+https://jackett.theosirian.com/ Jackett
+https://organizr.theosirian.com/ Organizr
+https://duplicati.theosirian.com/ Duplicati
+https://plex.theosirian.com/ Plex Media Server
+https://tautulli.theosirian.com/ Tautulli
+https://ombi.theosirian.com/ Ombi
+https://funkwhale.theosirian.com/ Funkwhale
+https://deluge.theosirian.com/ Deluge
+https://rutorrent.theosirian.com/ rutorrent
+https://znc.theosirian.com/ ZNC
+https://traefik.theosirian.com/ Træfik
+https://stackoverflow.com/questions/9090817/copying-files-using-rsync-from-remote-server-to-local-machine ssh - Copying files using rsync from remote server to local machine - Stack Overflow
+http://forums.ffshrine.org/forumdisplay.php?f=72 Video Game Music Download Links
+https://ptpimg.me/login.php?g/JiivCZ1LmYZ+lpPh4NV6Oo6XandX8L/DtAG5XCtVw= ptpimg.me
