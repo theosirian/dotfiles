@@ -57,7 +57,9 @@ if [[ "$(yarn global bin)" ]]; then
 fi
 
 # Esperanto keyboard accents
-#setxkbmap -option esperanto:qwerty
+setxkbmap -option esperanto:qwerty
+# Esperanto keyboard accents
+setxkbmap -option caps:swapescape
 
 alias xo="xdg-open"
 alias vimrc="vim ~/.vimrc"
@@ -70,3 +72,31 @@ firstpage() {
 }
 
 alias passhs="PASSWORD_STORE_DIR=$HOME/999-hackerspace/.password-store pass"
+
+export DOTFILES_PATH="$HOME/dotfiles"
+
+alacritty-manager() {
+  FILE="$DOTFILES_PATH/alacritty.yml"
+  THEME_DIR="$DOTFILES_PATH/base16-alacritty/colors"
+
+  if [ $1 = "show" ]; then
+    exit
+  elif [ $1 = "set" ]; then
+    THEME="$THEME_DIR/base16-$2.yml"
+
+    if [ ! -f "$THEME" ]; then
+      THEME="$THEME_DIR/base16-$2\-dark.yml"
+    fi
+
+    if [ ! -f "$THEME" ]; then
+      echo 'Requested theme does not exist!'
+      exit
+    fi
+
+    sed '/^# START COLORS$/q' "$FILE" > "/tmp/alacritty.yml"
+    cat "$THEME" >> "/tmp/alacritty.yml"
+    echo '# END COLORS' >> "/tmp/alacritty.yml"
+    sed '1,/^# END COLORS$/d' "$FILE" >> "/tmp/alacritty.yml"
+
+  fi
+}

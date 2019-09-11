@@ -1,0 +1,3 @@
+[submodule "base16-alacritty"]
+	path = base16-alacritty
+	url = https://github.com/aaron-williamson/base16-alacritty

@@ -81,9 +81,29 @@ let g:ale_fix_on_save = 1
 let g:ale_sign_column_always = 1
 let g:ale_rust_rls_executable ="/usr/bin/rls"
 let g:ale_rust_rls_toolchain = "nightly"
+let g:ale_rust_rls_config = {'rust': {'clippy_preference': 'on'}}
 let g:ale_linters_explicit = 1
-let g:ale_linters = {'javascript': ['eslint'], 'rust': ['rls'], 'vue': ['eslint'], 'typescript': ['tslint'], 'dart': ['dartfmt'], 'xml': ['xmllint'], 'c#': ['uncrustify']}
-let g:ale_fixers = {'javascript': ['prettier', 'eslint'], 'vue': ['eslint'], 'typescript': ['tslint'], 'dart': ['dartfmt'], 'xml': ['xmllint'], 'c#': ['uncrustify']}
+
+let g:ale_linters = {
+      \ 'javascript': ['eslint'],
+      \ 'rust': ['rls'],
+      \ 'vue': ['eslint'],
+      \ 'typescript': ['tslint'],
+      \ 'dart': ['dartfmt'],
+      \ 'xml': ['xmllint'],
+      \ 'c#': ['uncrustify'],
+      \}
+
+let g:ale_fixers = {
+      \ 'javascript': ['prettier', 'eslint'],
+      \ 'vue': ['eslint'],
+      \ 'typescript': ['tslint'],
+      \ 'dart': ['dartfmt'],
+      \ 'xml': ['xmllint'],
+      \ 'c#': ['uncrustify'],
+      \ 'ron': ['ronfmt'],
+      \}
+
 let g:ale_lint_on_text_changed = 'never'
 
 let g:racer_cmd = '/home/xtheosirian/.cargo/bin/racer'
@@ -111,8 +131,6 @@ endfun
 
 au! BufNewFile,BufRead *.glslv,*.glslf set ft=glsl
 
-map <silent> <F3> <ESC>:w<CR>
-map <silent> <F5> <ESC>:wa<CR>
 map <silent> <F7> <ESC>:Autoformat<CR>
 map <silent> <F10> <ESC>:mks!<CR>
 
@@ -126,6 +144,17 @@ au FileType yaml,python,qaf let b:autoformat_remove_trailing_spaces = 0
 
 nnoremap - :call bufferhint#Popup()<CR>
 nnoremap \ :call bufferhint#LoadPrevious()<CR>
+
+" Maps Ctrl-[h,j,k,l] to Ctrl-W-[h,j,k,l]
+nmap <silent> <C-h> <C-w>h
+nmap <silent> <C-j> <C-W>j
+nmap <silent> <C-k> <C-W>k
+nmap <silent> <C-l> <C-w>l
+
+" Maps L_q to close split
+nmap <leader>q <C-w>q
+" Maps L_o to focus split
+nmap <leader>o <C-w>o
 
 " Maps Alt-[h,j,k,l] to resizing a window split
 map <silent> <A-h> <C-w><
@@ -228,3 +257,5 @@ function! TwiddleCase(str)
   return result
 endfunction
 vnoremap ~ y:call setreg('', TwiddleCase(@"), getregtype(''))<CR>gv""Pgv
+
+autocmd VimResized * execute "normal! \<c-w>="

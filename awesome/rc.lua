@@ -491,6 +491,9 @@ awful.util.tasklist_buttons = my_table.join(
   awful.key({ modkey }, "v", function () awful.spawn("xsel -b | xsel") end,
     {description = "copy gtk to terminal", group = "hotkeys"}),
 
+  awful.key({ modkey }, "g", function () awful.spawn("/home/xtheosirian/bin/colorpicker") end,
+    {description = "run colorpicker", group = "hotkeys"}),
+
   -- User programs
   awful.key({ modkey }, "q", function () awful.spawn(browser) end,
     {description = "run browser", group = "launcher"}),

@@ -34,6 +34,8 @@ if [ -z "$XKB_IN_USE" ]; then
     done
 fi
 
+alias colorpicker="gpick -os --no-newline | xsel -bi"
+
 setxkbmap br abnt2
 
 exec awesome
