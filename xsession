@@ -37,5 +37,7 @@ fi
 alias colorpicker="gpick -os --no-newline | xsel -bi"
 
 setxkbmap br abnt2
+setxkbmap -option caps:swapescape
+setxkbmap -option esperanto:qwerty
 
 exec awesome

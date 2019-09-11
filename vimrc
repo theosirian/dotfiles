@@ -82,6 +82,8 @@ let g:ale_sign_column_always = 1
 let g:ale_rust_rls_executable ="/usr/bin/rls"
 let g:ale_rust_rls_toolchain = "nightly"
 let g:ale_rust_rls_config = {'rust': {'clippy_preference': 'on'}}
+let g:ale_c_uncrustify_options = "-c ~/uncrustify.cfg"
+let g:ale_lint_on_text_changed = 'never'
 let g:ale_linters_explicit = 1
 
 let g:ale_linters = {
@@ -103,8 +105,6 @@ let g:ale_fixers = {
       \ 'c#': ['uncrustify'],
       \ 'ron': ['ronfmt'],
       \}
-
-let g:ale_lint_on_text_changed = 'never'
 
 let g:racer_cmd = '/home/xtheosirian/.cargo/bin/racer'
 let g:racer_experimental_completer = 1
