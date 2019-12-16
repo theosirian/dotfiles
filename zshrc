@@ -21,6 +21,10 @@ if [[ -f /opt/android-sdk/platform-tools/adb ]]; then
   export PATH="/opt/android-sdk/platform-tools:$PATH"
 fi
 
+if [[ "$(yarn global bin)" ]]; then
+  export PATH="$PATH:`yarn global bin`"
+fi
+
 # Path to your oh-my-zsh installation.
 #export ZSH=$HOME/.oh-my-zsh
 export ZSH=/usr/share/oh-my-zsh
@@ -158,11 +162,3 @@ export LANG=en_US.UTF-8
 
 # ssh
 export SSH_KEY_PATH="~/.ssh/id_rsa"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-if [[ -f $HOME/yoopay.sh ]]; then
-  source $HOME/yoopay.sh
-fi

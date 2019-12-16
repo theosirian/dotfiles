@@ -10,6 +10,15 @@
 
 #eval $( dircolors -b $HOME/LS_COLORS )
 
+decode_base64_url() {
+  local len=$((${#1} % 4))
+  local result="$1"
+  if [ $len -eq 2 ]; then result="$1"'=='
+  elif [ $len -eq 3 ]; then result="$1"'=' 
+  fi
+  echo "$result" | tr '_-' '/+' | openssl enc -d -base64
+}
+
 decode_jwt() {
    decode_base64_url $(echo -n $2 | cut -d "." -f $1) | jq .
 }
@@ -48,13 +57,9 @@ alias -g XOB=" | xsel -ob"
 # tee copy to all
 #alias teecopy="tsc >(XIP) >(XIS) >(XIC)"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-
-if [[ "$(yarn global bin)" ]]; then
-  export PATH="$PATH:`yarn global bin`"
-fi
+#export NVM_DIR="$HOME/.nvm"
+#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 # Esperanto keyboard accents
 setxkbmap -option esperanto:qwerty

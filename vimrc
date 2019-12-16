@@ -26,7 +26,7 @@ set number
 set relativenumber
 set numberwidth=8
 set ruler
-set colorcolumn=100
+set colorcolumn=80
 set cursorline
 set scrolloff=999
 
@@ -88,22 +88,26 @@ let g:ale_linters_explicit = 1
 
 let g:ale_linters = {
       \ 'javascript': ['eslint'],
+      \ 'typescript': ['tsserver', 'tslint'],
       \ 'rust': ['rls'],
       \ 'vue': ['eslint'],
-      \ 'typescript': ['tslint'],
-      \ 'dart': ['dartfmt'],
+      \ 'css': ['stylelint'],
+      \ 'dart': ['dartfmt', 'dartanalyzer'],
       \ 'xml': ['xmllint'],
       \ 'c#': ['uncrustify'],
+      \ 'python': ['mypy'],
       \}
 
 let g:ale_fixers = {
-      \ 'javascript': ['prettier', 'eslint'],
+      \ 'javascript': ['eslint'],
+      \ 'typescript': ['prettier', 'tslint'],
       \ 'vue': ['eslint'],
-      \ 'typescript': ['tslint'],
+      \ 'css': ['stylelint'],
       \ 'dart': ['dartfmt'],
       \ 'xml': ['xmllint'],
       \ 'c#': ['uncrustify'],
       \ 'ron': ['ronfmt'],
+      \ 'python': ['yapf'],
       \}
 
 let g:racer_cmd = '/home/xtheosirian/.cargo/bin/racer'
@@ -112,6 +116,7 @@ au FileType rust nmap gd <Plug>(rust-def)
 au FileType rust nmap gs <Plug>(rust-def-split)
 au FileType rust nmap gx <Plug>(rust-def-vertical)
 au FileType rust nmap <leader>gd <Plug>(rust-doc)
+
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 
@@ -134,7 +139,7 @@ au! BufNewFile,BufRead *.glslv,*.glslf set ft=glsl
 map <silent> <F7> <ESC>:Autoformat<CR>
 map <silent> <F10> <ESC>:mks!<CR>
 
-set formatprg=par\ j1w120
+set formatprg=par\ j1w80
 "set formatprg=par\ P+\*P+\-P+\+P+$\ 80j
 map <F6> <ESC>mkggVGgq`k
 
@@ -146,10 +151,10 @@ nnoremap - :call bufferhint#Popup()<CR>
 nnoremap \ :call bufferhint#LoadPrevious()<CR>
 
 " Maps Ctrl-[h,j,k,l] to Ctrl-W-[h,j,k,l]
-nmap <silent> <C-h> <C-w>h
-nmap <silent> <C-j> <C-W>j
-nmap <silent> <C-k> <C-W>k
-nmap <silent> <C-l> <C-w>l
+nmap <silent> <C-h> <C-w>W
+"nmap <silent> <C-j> <C-W>j
+"nmap <silent> <C-k> <C-W>k
+nmap <silent> <C-l> <C-w>w
 
 " Maps L_q to close split
 nmap <leader>q <C-w>q
@@ -157,18 +162,22 @@ nmap <leader>q <C-w>q
 nmap <leader>o <C-w>o
 
 " Maps Alt-[h,j,k,l] to resizing a window split
-map <silent> <A-h> <C-w><
-map <silent> <A-j> <C-W>-
-map <silent> <A-k> <C-W>+
-map <silent> <A-l> <C-w>>
+nmap <silent> <A-h> <C-w><
+nmap <silent> <A-j> <C-W>-
+nmap <silent> <A-k> <C-W>+
+nmap <silent> <A-l> <C-w>>
+
+" Maps Alt-[n,p] to quickfix next/previous.
+nmap <silent> <A-n> :cnext<CR>
+nmap <silent> <A-p> :cprevious<CR>
 
 " Maps Alt-[s.v] to horizontal and vertical split respectively
-map <silent> <A-s> :split<CR>
-map <silent> <A-v> :vsplit<CR>
+nmap <silent> <A-s> :split<CR>
+nmap <silent> <A-v> :vsplit<CR>
 
 " Maps Alt-[n,p] for moving next and previous window respectively
-map <silent> <A-n> <C-w><C-w>
-map <silent> <A-p> <C-w><S-w>
+"nmap <silent> <A-n> <C-w><C-w>
+"nmap <silent> <A-p> <C-w><S-w>
 
 map <C-n> :NERDTreeToggle<CR>
 vnoremap <C-R> "hy:%s/<C-R>h//gc<left><left><left>
