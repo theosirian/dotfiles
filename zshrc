@@ -162,3 +162,5 @@ export LANG=en_US.UTF-8
 
 # ssh
 export SSH_KEY_PATH="~/.ssh/id_rsa"
+
+export EUREKA_KEY_STORE='/home/xtheosirian/999-eureka/catabriga.jks'
